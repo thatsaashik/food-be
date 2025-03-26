@@ -14,11 +14,15 @@ const app = express();
 app.use(express.json());
 
 // Configure CORS
-app.use(cors({
-  origin: ["http://localhost:5173", "https://food-frontend-sepia.vercel.app"], // Add your frontend domain
-  methods: ["GET", "POST", "PUT", "DELETE"],
-  allowedHeaders: ["Content-Type", "Authorization"],
-}));
+app.use(
+  cors({
+    origin: ["http://localhost:5173", "https://food-fe-3.onrender.com"], // ✅ Add your Render frontend URL
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    allowedHeaders: ["Content-Type", "Authorization"],
+    credentials: true, // ✅ Allow cookies & authentication headers if needed
+  })
+);
+
 
 
 // Routes
